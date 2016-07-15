@@ -8,6 +8,7 @@ public class Clamp : MonoBehaviour {
 	{
 		if(other.gameObject.tag == "Player"){
 			Debug.Log ("the player Exit from the PlayGround !");
+			Debug.Log ("GitHub Test");
 		}
 
 	}
