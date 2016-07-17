@@ -39,18 +39,14 @@ public class PlayerController : MonoBehaviour {
 		transform.position += moveAmount;
 
 		if (transform.position.x < -screenHalfWidthInWorldUnit) {
-			onGround = true;
-			Debug.Log ("hit !!");
 			transform.position = new Vector2 (-screenHalfWidthInWorldUnit, transform.position.y);
 		}
 		if (transform.position.x > screenHalfWidthInWorldUnit) {
-			onGround = true;
 			transform.position = new Vector2 (screenHalfWidthInWorldUnit, transform.position.y);
 		}
 		if (transform.position.y < -screenHalfHeightInWorldUnit) {
 			onGround = true;
 			transform.position = new Vector2 (transform.position.x,-screenHalfHeightInWorldUnit);
-			Debug.Log ("hit the Ground !!");
 		}
 		//jumping the player...
 		if (onGround) {
@@ -64,7 +60,7 @@ public class PlayerController : MonoBehaviour {
 			} else {
 				if(jumpPressure > 0f){
 					jumpPressure += minJumpPressure; 
-					rigBody.velocity = new Vector3 (jumpPressure / 3, jumpPressure, 0f);
+					rigBody.velocity = new Vector3 (Input.GetAxis ("Horizontal") * 10, jumpPressure, 0f);
 					jumpPressure = 0f;
 					onGround = false;
 				}
