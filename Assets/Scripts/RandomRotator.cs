@@ -12,14 +12,11 @@ public class RandomRotator : MonoBehaviour {
 		//rigBody.rotation = Random.rotationUniform;
 
         System.Random rand = new System.Random();
-        List<int> choices = new List<int>() { 0, 90, 180, 270 };
+		var i = 10;
+		while (i > 0) {
 
-        while (choices.Count > 0)
-        {
-            int index = rand.Next() % choices.Count;
-            int choice = choices[index];
-            Debug.Log("the next random number : " + choice);
-            choices.RemoveAt(index);
-        }
+			Debug.Log("the next random number : " + rand.Next (0, 5) * 90);
+			i--;
+		}
     }
 }
